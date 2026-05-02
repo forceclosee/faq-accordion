@@ -210,6 +210,11 @@ details::details-content {
   overflow-y: clip;
   opacity: 0;
   block-size: 0;
+  /* open / close transition */
+  transition:
+    content-visibility 0.5s ease allow-discrete,
+    opacity 0.5s ease,
+    block-size 0.5s ease;
 }
 
 details[open]::details-content {
