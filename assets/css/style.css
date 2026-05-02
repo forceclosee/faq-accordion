@@ -1,0 +1,234 @@
+/* BASE */
+
+/* variables */
+:root {
+  --white: hsl(0, 100%, 100%);
+  --purple-100: hsl(275, 100%, 97%);
+  --purple-400: hsl(280, 82%, 58%);
+  --purple-600: hsl(292, 16%, 49%);
+  --purple-950: hsl(292, 42%, 14%);
+}
+
+/* Use a more-intuitive box-sizing model */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+*:not(dialog) {
+  margin: 0;
+}
+
+/* Increase line-height */
+* {
+  line-height: calc(1em + 0.5rem);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    /* Enable smooth scrolling for anchor links */
+    scroll-behavior: smooth;
+    /* Enable keywords animations */
+    interpolate-size: allow-keywords;
+  }
+}
+
+body {
+  /* Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+  /* Define default font */
+  font:
+    400 1rem "Work Sans",
+    sans-serif;
+}
+
+/* Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Inherit fonts for form controls */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+/* LAYOUT AND COMPONENTS */
+
+/* page layout */
+.page-layout {
+  min-block-size: 100vb; /* fallback if browser did't support svb */
+  min-block-size: 100svb;
+  display: grid;
+  align-items: center;
+  grid-template-rows: 1fr auto;
+  grid-template-areas:
+    "main"
+    "footer";
+  background-color: var(--purple-100);
+  gap: 1rem;
+  padding: 1.5rem;
+}
+
+/* background pattern*/
+.bg {
+  align-self: start;
+  grid-area: main;
+  position: sticky;
+  top: 0;
+  min-inline-size: 100%;
+  block-size: 28vb;
+  /* Background pattern for mobile view */
+  background-image: url(/assets/img/background-pattern-mobile.svg);
+  /* Background pattern for desktop view */
+  @media (width >= 992px) {
+    background-image: url(/assets/img/background-pattern-desktop.svg);
+    block-size: 35vb;
+  }
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-block-start: -1.5rem;
+  margin-inline: -1.5rem;
+}
+
+/* accordion card */
+.main {
+  grid-area: main;
+  z-index: 1;
+  inline-size: min(37.5rem, 100%);
+  /* max size terjadi di 992px */
+  padding: clamp(1.5rem, calc(2.5932vi + 0.8922rem), 2.5rem);
+  margin-inline: auto;
+  background-color: var(--white);
+  border-radius: clamp(0.5rem, calc(1.2966vi + 0.1961rem), 1rem);
+}
+
+/* accordion title */
+.main h1 {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  /* max size terjadi di 992px */
+  font-size: clamp(2rem, calc(3.8898vi + 1.0883rem), 3.5rem);
+  margin-block-end: clamp(1.4rem, calc(1.2966vi + 1.0961rem), 1.9rem);
+}
+
+/* sparkle icon on the title */
+.main h1::before {
+  content: "";
+  display: inline-block;
+  /* max size terjadi di 992px */
+  inline-size: clamp(1.5rem, calc(2.5932vi + 0.8922rem), 2.5rem);
+  block-size: clamp(1.5rem, calc(2.5932vi + 0.8922rem), 2.5rem);
+  background-image: url("/assets/img/icon-star.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Adds a line between accordion items */
+details:not(:last-of-type) {
+  padding-block-end: clamp(1.2rem, calc(0.2593vi + 1.1392rem), 1.3rem);
+  margin-block-end: clamp(1.2rem, calc(0.2593vi + 1.1392rem), 1.3rem);
+  border-bottom: 1px solid var(--purple-100);
+}
+
+/* summary */
+details summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  font-weight: 600;
+  font-size: clamp(1rem, calc(0.3371vi + 0.921rem), 1.13rem);
+  color: var(--purple-950);
+  line-height: clamp(1.2rem, calc(1.1078vi + 0.9404rem), 1.6272rem);
+  list-style: none;
+}
+
+/* Fallback to remove the marker in Safari/WebKit */
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+/* add different marker on details summary */
+details summary::after {
+  content: url(/assets/img/icon-plus.svg);
+  flex-shrink: 0;
+}
+
+details[open] summary::after {
+  content: url(/assets/img/icon-minus.svg);
+  flex-shrink: 0;
+}
+
+/* change summary styles on hover and focus */
+details summary:hover,
+details summary:focus-visible {
+  color: var(--purple-400);
+  cursor: pointer;
+}
+
+/* details content */
+details::details-content {
+  font-size: clamp(0.875rem, calc(0.3241vi + 0.799rem), 1rem);
+  color: var(--purple-600);
+  overflow-y: clip;
+  opacity: 0;
+  block-size: 0;
+}
+
+details[open]::details-content {
+  opacity: 1;
+  block-size: auto;
+}
+
+details p {
+  padding-block-start: 1.19rem;
+}
+
+/* footer */
+/* attributions */
+.attribution {
+  font-size: 0.6875rem;
+  text-align: center;
+  margin-block-end: -1rem;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
