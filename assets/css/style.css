@@ -187,13 +187,25 @@ details summary::-webkit-details-marker {
 
 /* add different marker on details summary */
 details summary::after {
-  content: url(/assets/img/icon-plus.svg);
+  content: "";
   flex-shrink: 0;
+  inline-size: 2rem;
+  block-size: 2rem;
+  background-image: url("../img/icon-plus.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 details[open] summary::after {
-  content: url(/assets/img/icon-minus.svg);
+  content: "";
   flex-shrink: 0;
+  inline-size: 2rem;
+  block-size: 2rem;
+  background-image: url("../img/icon-minus.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 /* change summary styles on hover and focus */
