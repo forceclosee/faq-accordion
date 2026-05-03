@@ -112,10 +112,10 @@ h6 {
   min-inline-size: 100%;
   block-size: 28vb;
   /* Background pattern for mobile view */
-  background-image: url(/assets/img/background-pattern-mobile.svg);
+  background-image: url(../img/background-pattern-mobile.svg);
   /* Background pattern for desktop view */
   @media (width >= 992px) {
-    background-image: url(/assets/img/background-pattern-desktop.svg);
+    background-image: url(../img/background-pattern-desktop.svg);
     block-size: 35vb;
   }
   background-size: cover;
@@ -154,7 +154,7 @@ h6 {
   /* max size terjadi di 992px */
   inline-size: clamp(1.5rem, calc(2.5932vi + 0.8922rem), 2.5rem);
   block-size: clamp(1.5rem, calc(2.5932vi + 0.8922rem), 2.5rem);
-  background-image: url("/assets/img/icon-star.svg");
+  background-image: url("../img/icon-star.svg");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
