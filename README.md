@@ -52,7 +52,7 @@ Users should be able to:
 
 Building an accordion without JavaScript was a great learning experience. I learned how to fully utilize the native HTML `<details>` and `<summary>` elements, which provide built-in accessibility and keyboard navigation.
 
-I am particularly proud of implementing a smooth opening/closing animation using bleeding-edge pseudo element `details content` and transition bevavior `allow-discrete`. This allowed me to avoid JavaScript entirely while maintaining a polished UI:
+I am particularly proud of implementing a smooth opening/closing animation using bleeding-edge pseudo element `details content` selector and transition behavior `allow-discrete`. This allowed me to avoid JavaScript entirely while maintaining a polished UI:
 
 ```css
 details::details-content {
