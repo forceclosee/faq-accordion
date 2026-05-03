@@ -113,16 +113,16 @@ h6 {
   block-size: 28vb;
   /* Background pattern for mobile view */
   background-image: url(../img/background-pattern-mobile.svg);
-  /* Background pattern for desktop view */
-  @media (width >= 992px) {
-    background-image: url(../img/background-pattern-desktop.svg);
-    block-size: 35vb;
-  }
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   margin-block-start: -1.5rem;
   margin-inline: -1.5rem;
+  /* Background pattern for desktop view */
+  @media (width >= 992px) {
+    background-image: url(../img/background-pattern-desktop.svg);
+    block-size: 35vb;
+  }
 }
 
 /* accordion card */
@@ -130,7 +130,6 @@ h6 {
   grid-area: main;
   z-index: 1;
   inline-size: min(37.5rem, 100%);
-  /* max size terjadi di 992px */
   padding: clamp(1.5rem, calc(2.5932vi + 0.8922rem), 2.5rem);
   margin-inline: auto;
   background-color: var(--white);
@@ -142,16 +141,14 @@ h6 {
   display: flex;
   align-items: center;
   gap: 1.5rem;
-  /* max size terjadi di 992px */
   font-size: clamp(2rem, calc(3.8898vi + 1.0883rem), 3.5rem);
   margin-block-end: clamp(1.4rem, calc(1.2966vi + 1.0961rem), 1.9rem);
 }
 
-/* sparkle icon on the title */
+/* add sparkle icon on the title */
 .main h1::before {
   content: "";
   display: inline-block;
-  /* max size terjadi di 992px */
   inline-size: clamp(1.5rem, calc(2.5932vi + 0.8922rem), 2.5rem);
   block-size: clamp(1.5rem, calc(2.5932vi + 0.8922rem), 2.5rem);
   background-image: url("../img/icon-star.svg");
