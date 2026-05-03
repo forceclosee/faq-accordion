@@ -29,12 +29,12 @@ Users should be able to:
 
 ### Screenshot
 
-![](assets/img/faq-accordion.png)
+![](assets/img/screenshot.png)
 
 ### Links
 
 - Solution URL: [solution URL](https://github.com/forceclosee/faq-accordion)
-- Live Site URL: [live site URL](https://your-live-site-url.com)
+- Live Site URL: [live site URL](https://forceclose-faq-accordion.netlify.app/)
 
 ## My process
 
